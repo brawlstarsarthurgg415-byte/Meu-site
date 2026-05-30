@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bot - Discord</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1c1e;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        /* Barra do Topo / Menu */
+        .navbar {
+            background-color: #111214;
+            padding: 15px 20px;
+            display: block;
+            text-align: right;
+            border-bottom: 1px solid #23272a;
+        }
+        .user-profile {
+            display: inline-block;
+            background-color: #2b2d31;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #5865F2;
+        }
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 8px;
+            background-color: #5865F2;
+        }
+        .user-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            vertical-align: middle;
+        }
+
+        /* Seção Principal */
+        .header-section {
+            background: linear-gradient(135deg, #5865F2, #404eed);
+            padding: 60px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .header-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-pink {
+            background-color: #eb459e;
+            color: white;
+        }
+        .btn-pink:hover {
+            background-color: #df338f;
+        }
+        .btn-purple {
+            background-color: #9b5de5;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #8338ec;
+        }
+        
+        /* Conteúdo */
+        .container {
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #23272a;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        .card h2 {
+            color: #5865F2;
+            margin-top: 0;
+        }
+        .card p {
+            color: #b9bbbe;
+            line-height: 1.6;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        footer {
+            background-color: #111214;
+            padding: 20px;
+            font-size: 14px;
+            color: #72767d;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="user-profile" id="userProfile">
+            <span class="user-name" id="profileText">Carregando conta...</span>
+        </div>
+    </div>
+
+    <div class="header-section">
+        <h1>Olá, eu sou o meu Bot!</h1>
+        <p>Apenas um simples bot brasileiro para o Discord</p>
+        
+        <a href="#" class="btn btn-pink">+ Me adicione!</a>
+        
+        <a href="https://discord.com/oauth2/authorize?client_id=1510318463334350999&response_type=code&redirect_uri=https%3A%2F%2Fmeu-site-dbyu.onrender.com&scope=identify+guilds" class="btn btn-purple" id="panelBtn">⚙️ Painel de Controle</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Transforme o seu servidor</h2>
+            <p>Membros querem entretenimento, moderadores querem automatização... e você apenas quer descansar. Deixe meu bot cuidar das partes chatas enquanto você se diverte!</p>
+        </div>
+
+        <div class="card">
+            <h2>Veja o Bot em Ação</h2>
+            <p>Assista ao vídeo abaixo para entender como usar os comandos e configurar no seu servidor:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Função para verificar se a pessoa acabou de voltar do login do Discord
+        window.onload = function() {
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bot - Discord</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1c1e;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        /* Barra do Topo / Menu */
+        .navbar {
+            background-color: #111214;
+            padding: 15px 20px;
+            display: block;
+            text-align: right;
+            border-bottom: 1px solid #23272a;
+        }
+        .user-profile {
+            display: inline-block;
+            background-color: #2b2d31;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #5865F2;
+        }
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 8px;
+            background-color: #5865F2;
+        }
+        .user-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            vertical-align: middle;
+        }
+
+        /* Seção Principal */
+        .header-section {
+            background: linear-gradient(135deg, #5865F2, #404eed);
+            padding: 60px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .header-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-pink {
+            background-color: #eb459e;
+            color: white;
+        }
+        .btn-pink:hover {
+            background-color: #df338f;
+        }
+        .btn-purple {
+            background-color: #9b5de5;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #8338ec;
+        }
+        
+        /* Conteúdo */
+        .container {
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #23272a;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        .card h2 {
+            color: #5865F2;
+            margin-top: 0;
+        }
+        .card p {
+            color: #b9bbbe;
+            line-height: 1.6;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        footer {
+            background-color: #111214;
+            padding: 20px;
+            font-size: 14px;
+            color: #72767d;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="user-profile" id="userProfile">
+            <span class="user-name" id="profileText">Carregando conta...</span>
+        </div>
+    </div>
+
+    <div class="header-section">
+        <h1>Olá, eu sou o meu Bot!</h1>
+        <p>Apenas um simples bot brasileiro para o Discord</p>
+        
+        <a href="#" class="btn btn-pink">+ Me adicione!</a>
+        
+        <a href="https://discord.com/oauth2/authorize?client_id=1510318463334350999&response_type=code&redirect_uri=https%3A%2F%2Fmeu-site-dbyu.onrender.com&scope=identify+guilds" class="btn btn-purple" id="panelBtn">⚙️ Painel de Controle</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Transforme o seu servidor</h2>
+            <p>Membros querem entretenimento, moderadores querem automatização... e você apenas quer descansar. Deixe meu bot cuidar das partes chatas enquanto você se diverte!</p>
+        </div>
+
+        <div class="card">
+            <h2>Veja o Bot em Ação</h2>
+            <p>Assista ao vídeo abaixo para entender como usar os comandos e configurar no seu servidor:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Função para verificar se a pessoa acabou de voltar do login do Discord
+        window.onload = function() {
+

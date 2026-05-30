@@ -1,0 +1,14 @@
+{
+  "name": "meu-painel-bot",
+  "version": "1.0.0",
+  "description": "Back-end para o painel do meu bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
+

@@ -13,7 +13,6 @@
             color: #ffffff;
         }
         
-        /* Barra de Navegação */
         .navbar {
             background-color: #111214;
             padding: 15px 20px;
@@ -35,7 +34,6 @@
             font-size: 14px;
         }
 
-        /* Container Principal */
         .container {
             padding: 30px 20px;
             max-width: 800px;
@@ -48,7 +46,6 @@
             margin-bottom: 30px;
         }
 
-        /* Grade de Opções du Painel */
         .panel-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -58,7 +55,6 @@
             .panel-grid { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Cartão de Configuração */
         .config-card {
             background-color: #23272a;
             padding: 20px;
@@ -74,7 +70,6 @@
             gap: 10px;
         }
 
-        /* Inputs e Controles */
         label {
             display: block;
             margin: 10px 0 5px 0;
@@ -92,7 +87,6 @@
             font-size: 14px;
         }
         
-        /* Botão Liga/Desliga Estilo Switch */
         .switch-container {
             display: flex;
             justify-content: space-between;
@@ -117,7 +111,6 @@
         input:checked + .slider { background-color: #23a55a; }
         input:checked + .slider:before { transform: translateX(24px); }
 
-        /* Botão Salvar */
         .btn-save {
             background-color: #5865F2;
             color: white;
@@ -131,6 +124,365 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .btn-save:hover { background-color: #404eed
+        .btn-save:hover { background-color: #404eed; }
+    </style>
+</head>
+<body>
 
+    <div class="navbar">
+        <div class="logo">🤖 MeuBot Painel</div>
+        <div class="user-profile">
+            🟢 Logado como: <b>ARTHURGG415</b>
+        </div>
+    </div>
 
+    <div class="container">
+        <h1>Configurações do Bot</h1>
+        
+        <div class="panel-grid">
+            
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>👋 Módulo Boas-Vindas</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="welcome_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <label>Mensagem de Entrada:</label>
+                <input type="text" id="welcome_msg" value="">
+            </div>
+
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>🛡️ Sistema Anti-Link</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="antilink_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p style="font-size: 14px; color: #b9bbbe; margin: 0;">Apaga links de outros servidores automaticamente para evitar spam.</p>
+            </div>
+
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>🎭 Auto-Cargo (Autorole)</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="autorole_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <label>Cargo para dar aos novos membros:</label>
+                <select id="autorole_role">
+                    <option value="Selecione">Selecione um cargo...</option>
+                    <option value="Membro">Membro</option>
+                    <option value="Jogador">Jogador</option>
+                    <option value="Iniciante">Iniciante</option>
+                </select>
+            </div>
+
+            <div class="config-card">
+                <h3>💬 Configuração Geral</h3>
+                <label>Prefixo dos Comandos:</label>
+                <input type="text" id="bot_prefix" value="!" style="width: 60px; text-align: center;">
+            </div>
+
+        </div>
+
+        <button class="btn-save" onclick="salvarConfiguracoes()">💾 Salvar Alterações</button>
+    </div>
+
+    <script>
+        // Função que carrega o que foi salvo no celular
+        function carregarConfiguracoes() {
+            const dadosSalvos = localStorage.getItem('configuracoesBot');
+            
+            if (dadosSalvos) {
+                const dados = JSON.parse(dadosSalvos);
+                document.getElementById('welcome_active').checked = dados.boasVindas.ativo;
+                document.getElementById('welcome_msg').value = dados.boasVindas.mensagem;
+                document.getElementById('antilink_active').checked = dados.antiLink.ativo;
+                document.getElementById('autorole_active').checked = dados.autoCargo.ativo;
+                document.getElementById('autorole_role').value = dados.autoCargo.cargo;
+                document.getElementById('bot_prefix').value = dados.prefixo;
+            } else {
+                // Valores padrão caso seja a primeira vez abrindo
+                document.getElementById('welcome_active').checked = true;
+                document.getElementById('welcome_msg').value = "Seja muito bem-vindo(a) ao nosso servidor!";
+                document.getElementById('antilink_active').checked = false;
+                document.getElementById('autorole_active').checked = true;
+                document.getElementById('autorole_role').value = "Membro";
+                document.getElementById('bot_prefix').value = "!";
+            }
+        }
+
+        // Função que salva tudo direto no navegador
+        function salvarConfiguracoes() {
+            const novasConfiguracoes = {
+                boasVindas: {
+                    ativo: document.getElementById('welcome_active').checked,
+                    mensagem: document.getElementById('welcome_msg').value
+                },
+                antiLink: {
+                    ativo: document.getElementById('antilink_active').checked
+                },
+                autoCargo: {
+                    ativo: document.getElementById('autorole_active').checked,
+                    cargo: document.getElementById('autorole_role').value
+                },
+                prefixo: document.getElementById('bot_prefix').value
+            };
+
+            localStorage.setItem('configuracoesBot', JSON.stringify(novasConfiguracoes));
+            alert("💾 Configurações do painel salvas com sucesso!");
+        }
+
+        window.onload = carregarConfiguracoes;
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bot - Painel de Controle</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1c1e;
+            color: #ffffff;
+        }
+        
+        .navbar {
+            background-color: #111214;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #23272a;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #5865F2;
+        }
+        .user-profile {
+            background-color: #2b2d31;
+            padding: 6px 15px;
+            border-radius: 20px;
+            border: 1px solid #23a55a;
+            font-size: 14px;
+        }
+
+        .container {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 600px) {
+            .panel-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .config-card {
+            background-color: #23272a;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #2f3136;
+        }
+        .config-card h3 {
+            margin-top: 0;
+            color: #5865F2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px 0;
+            font-size: 14px;
+            color: #b9bbbe;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #111214;
+            background-color: #1e1f22;
+            color: white;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        .switch-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #4e5058; transition: .3s; border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px;
+            background-color: white; transition: .3s; border-radius: 50%;
+        }
+        input:checked + .slider { background-color: #23a55a; }
+        input:checked + .slider:before { transform: translateX(24px); }
+
+        .btn-save {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-save:hover { background-color: #404eed; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">🤖 MeuBot Painel</div>
+        <div class="user-profile">
+            🟢 Logado como: <b>ARTHURGG415</b>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Configurações do Bot</h1>
+        
+        <div class="panel-grid">
+            
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>👋 Módulo Boas-Vindas</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="welcome_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <label>Mensagem de Entrada:</label>
+                <input type="text" id="welcome_msg" value="">
+            </div>
+
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>🛡️ Sistema Anti-Link</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="antilink_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p style="font-size: 14px; color: #b9bbbe; margin: 0;">Apaga links de outros servidores automaticamente para evitar spam.</p>
+            </div>
+
+            <div class="config-card">
+                <div class="switch-container">
+                    <h3>🎭 Auto-Cargo (Autorole)</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="autorole_active">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <label>Cargo para dar aos novos membros:</label>
+                <select id="autorole_role">
+                    <option value="Selecione">Selecione um cargo...</option>
+                    <option value="Membro">Membro</option>
+                    <option value="Jogador">Jogador</option>
+                    <option value="Iniciante">Iniciante</option>
+                </select>
+            </div>
+
+            <div class="config-card">
+                <h3>💬 Configuração Geral</h3>
+                <label>Prefixo dos Comandos:</label>
+                <input type="text" id="bot_prefix" value="!" style="width: 60px; text-align: center;">
+            </div>
+
+        </div>
+
+        <button class="btn-save" onclick="salvarConfiguracoes()">💾 Salvar Alterações</button>
+    </div>
+
+    <script>
+        // Função que carrega o que foi salvo no celular
+        function carregarConfiguracoes() {
+            const dadosSalvos = localStorage.getItem('configuracoesBot');
+            
+            if (dadosSalvos) {
+                const dados = JSON.parse(dadosSalvos);
+                document.getElementById('welcome_active').checked = dados.boasVindas.ativo;
+                document.getElementById('welcome_msg').value = dados.boasVindas.mensagem;
+                document.getElementById('antilink_active').checked = dados.antiLink.ativo;
+                document.getElementById('autorole_active').checked = dados.autoCargo.ativo;
+                document.getElementById('autorole_role').value = dados.autoCargo.cargo;
+                document.getElementById('bot_prefix').value = dados.prefixo;
+            } else {
+                // Valores padrão caso seja a primeira vez abrindo
+                document.getElementById('welcome_active').checked = true;
+                document.getElementById('welcome_msg').value = "Seja muito bem-vindo(a) ao nosso servidor!";
+                document.getElementById('antilink_active').checked = false;
+                document.getElementById('autorole_active').checked = true;
+                document.getElementById('autorole_role').value = "Membro";
+                document.getElementById('bot_prefix').value = "!";
+            }
+        }
+
+        // Função que salva tudo direto no navegador
+        function salvarConfiguracoes() {
+            const novasConfiguracoes = {
+                boasVindas: {
+                    ativo: document.getElementById('welcome_active').checked,
+                    mensagem: document.getElementById('welcome_msg').value
+                },
+                antiLink: {
+                    ativo: document.getElementById('antilink_active').checked
+                },
+                autoCargo: {
+                    ativo: document.getElementById('autorole_active').checked,
+                    cargo: document.getElementById('autorole_role').value
+                },
+                prefixo: document.getElementById('bot_prefix').value
+            };
+
+            localStorage.setItem('configuracoesBot', JSON.stringify(novasConfiguracoes));
+            alert("💾 Configurações do painel salvas com sucesso!");
+        }
+
+        window.onload = carregarConfiguracoes;
+    </script>
+
+</body>
+</html>

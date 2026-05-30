@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bot - Painel de Controle Completo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1c1e;
+            color: #ffffff;
+        }
+        
+        /* Barra de Navegação */
+        .navbar {
+            background-color: #111214;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #23272a;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #5865F2;
+        }
+        .user-profile {
+            background-color: #2b2d31;
+            padding: 6px 15px;
+            border-radius: 20px;
+            border: 1px solid #23a55a;
+            font-size: 14px;
+        }
+
+        /* Container Principal */
+        .container {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #b9bbbe;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        /* Grade de Opções do Painel */
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 650px) {
+            .panel-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Cartão de Configuração */
+        .config-card {
+            background-color: #23272a;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #2f3136;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-top h3 {
+            margin-top: 0;
+            color: #5865F2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-desc {
+            font-size: 14px;
+            color:
+
